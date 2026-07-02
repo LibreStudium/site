@@ -1,0 +1,236 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__glow hero__glow--primary"></div>
+    <div class="hero__glow hero__glow--secondary"></div>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__logo-wrap">
+      <img
+        class="hero__logo"
+        src="/logo/LibreStudium_logo_black_transparent.svg"
+        alt="LibreStudium"
+        width="2048"
+        height="2048"
+        fetchpriority="high"
+      />
+    </div>
+
+    <h1 id="hero-title" class="hero__title">LibreLMS скоро откроется</h1>
+
+    <p class="hero__subtitle">
+      Мы готовим информационный веб-портал ИТ-экосистемы LibreLMS: новости,
+      документацию, инструменты дистрибуции ПО и руководство по стилю бренда.
+    </p>
+
+    <p class="hero__status">Предрелизная версия · запуск в подготовке</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    overflow: hidden;
+    background: linear-gradient(
+      165deg,
+      var(--color-white) 0%,
+      var(--color-mist) 45%,
+      color-mix(in srgb, var(--color-light-blue) 18%, var(--color-white)) 100%
+    );
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+  }
+
+  .hero__glow--primary {
+    top: -12%;
+    left: 50%;
+    width: min(70vw, 520px);
+    height: min(70vw, 520px);
+    transform: translateX(-50%);
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-bright-blue) 35%, transparent) 0%,
+      transparent 70%
+    );
+    animation: glow-pulse 6s var(--ease-out) infinite alternate;
+  }
+
+  .hero__glow--secondary {
+    bottom: -8%;
+    right: -5%;
+    width: min(50vw, 360px);
+    height: min(50vw, 360px);
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-deep-blue) 20%, transparent) 0%,
+      transparent 70%
+    );
+    animation: glow-pulse-secondary 8s var(--ease-out) infinite alternate-reverse;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 42rem;
+    text-align: center;
+    animation: content-fade-in 1s var(--ease-out) both;
+  }
+
+  .hero__logo-wrap {
+    position: relative;
+    margin-bottom: clamp(1.25rem, 4vw, 2rem);
+    animation: logo-enter 1.2s var(--ease-out) both;
+  }
+
+  .hero__logo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      color-mix(in srgb, var(--color-bright-blue) 25%, transparent) 0%,
+      transparent 70%
+    );
+    filter: blur(24px);
+    z-index: -1;
+    animation: logo-glow 3s var(--ease-out) infinite alternate;
+  }
+
+  .hero__logo {
+    width: clamp(7rem, 22vw, 11rem);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero__title {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-deep-blue);
+    animation: text-rise 0.9s var(--ease-out) 0.25s both;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 1.5rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--color-ink) 78%, transparent);
+    animation: text-rise 0.9s var(--ease-out) 0.4s both;
+  }
+
+  .hero__status {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-deep-blue);
+    background: color-mix(in srgb, var(--color-white) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-bright-blue) 25%, transparent);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    animation: text-rise 0.9s var(--ease-out) 0.55s both;
+  }
+
+  @keyframes logo-enter {
+    from {
+      opacity: 0;
+      transform: scale(0.88) translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  @keyframes logo-glow {
+    from {
+      opacity: 0.5;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 0.85;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes content-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes text-rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow-pulse {
+    from {
+      opacity: 0.3;
+      transform: translateX(-50%) scale(0.95);
+    }
+    to {
+      opacity: 0.55;
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+
+  @keyframes glow-pulse-secondary {
+    from {
+      opacity: 0.25;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 0.45;
+      transform: scale(1.05);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero__logo {
+      width: clamp(5.5rem, 28vw, 7rem);
+    }
+
+    .hero__subtitle {
+      padding: 0 0.25rem;
+    }
+  }
+</style>

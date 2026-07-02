@@ -1,0 +1,51 @@
+:root {
+  --color-deep-blue: #1e3a8a;
+  --color-bright-blue: #3b82f6;
+  --color-light-blue: #93c5fd;
+  --color-ink: #0f172a;
+  --color-mist: #eef1f5;
+  --color-white: #ffffff;
+
+  --font-heading: 'Jost', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
